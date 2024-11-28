@@ -39,20 +39,14 @@ export const useVendorContext = () => {
 }
 
 export const VendorProvider = ({ children }: { children: React.ReactNode; }) => {
-    let vendorsLocal;
-    const initialVendors = Array.isArray(vendorsLocal) && vendorsLocal 
-        ? vendorsLocal 
-        : (Array.isArray(vendorsData) && vendorsData 
-            ? vendorsData 
-            : []);
-    
-    const [vendors, setVendors] = useState<VendorData[]>(initialVendors);
-
     if (typeof window === undefined) return null;
-    vendorsLocal = localStorage.getItem('vendors');
+    let vendorsLocal = localStorage.getItem('vendors');
     if (vendorsLocal) vendorsLocal = JSON.parse(vendorsLocal);
-
     
+    const [vendors, setVendors] = useState<VendorData[]>(
+        Array.isArray(vendorsLocal) && vendorsLocal ? vendorsLocal : 
+        (Array.isArray(vendorsData) && vendorsData ? vendorsData : [])
+    );
     
     localStorage.setItem('vendors', JSON.stringify(vendors));
     const addVendor = (values: VendorData) => {
