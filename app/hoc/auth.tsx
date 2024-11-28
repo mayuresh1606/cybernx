@@ -9,10 +9,12 @@ const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) =>
     const router = useRouter();
 
     useEffect(() => {
-      if (!isAuthenticated) {
-        const user = localStorage.getItem('user');
-        if (!user) {
-          router.push('/login');
+      if (typeof window !== undefined){
+        if (!isAuthenticated) {
+          const user = localStorage.getItem('user');
+          if (!user) {
+            router.push('/login');
+          }
         }
       }
     }, [isAuthenticated]);

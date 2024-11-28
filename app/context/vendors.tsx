@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface VendorContext {
     vendors: VendorData[];
@@ -39,23 +39,28 @@ export const useVendorContext = () => {
 }
 
 export const VendorProvider = ({ children }: { children: React.ReactNode; }) => {
-    if (typeof window === undefined) return null;
-    let vendorsLocal = localStorage.getItem('vendors');
-    if (vendorsLocal) vendorsLocal = JSON.parse(vendorsLocal);
-    
-    const [vendors, setVendors] = useState<VendorData[]>(
-        Array.isArray(vendorsLocal) && vendorsLocal ? vendorsLocal : 
-        (Array.isArray(vendorsData) && vendorsData ? vendorsData : [])
-    );
-    
-    localStorage.setItem('vendors', JSON.stringify(vendors));
+    const [vendors, setVendors] = useState<VendorData[]>([]);
+    useEffect(() => {
+        let vendorsLocal = localStorage.getItem('vendors');
+        if (vendorsLocal) vendorsLocal = JSON.parse(vendorsLocal);
+        const initialVendors = Array.isArray(vendorsLocal) && vendorsLocal 
+        ? vendorsLocal 
+        : (Array.isArray(vendorsData) && vendorsData 
+            ? vendorsData 
+            : []);
+        setVendors(initialVendors)
+        localStorage.setItem('vendors', JSON.stringify(vendors));
+    }, [])
+
     const addVendor = (values: VendorData) => {
         const stringifiedVendors = localStorage.getItem("vendors");
         let vendors;
         if (stringifiedVendors) vendors = JSON.parse(stringifiedVendors);
         vendors.push({ ...values, id: vendors.length + 1 });
-        localStorage.setItem("vendors", JSON.stringify(vendors));
-        setVendors(vendors);
+        if (typeof window !== undefined){
+            localStorage.setItem("vendors", JSON.stringify(vendors));
+            setVendors(vendors);
+        }
     }
 
     return <VendorContext.Provider value={{ vendors, addVendor, setVendors }}>{children}</VendorContext.Provider>
