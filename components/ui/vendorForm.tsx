@@ -56,9 +56,7 @@ const MyForm = ({ setForm, form, edit, setEdit, vendorToEdit }: { setForm: (valu
     }, [form])
 
     const handleSubmit = (values: VendorData) => {
-      console.log("handling submit")
       if (edit){
-        console.log("EDITING")
         editVendor(edit, values)
         setEdit(0)
       }else {

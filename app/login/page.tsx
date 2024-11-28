@@ -9,7 +9,6 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(process.env.NEXT_PUBLIC_EMAIL, "EMAIL")
     if (email === process.env.NEXT_PUBLIC_EMAIL && password === process.env.NEXT_PUBLIC_PASS) {
       login({ email });
     } else {
