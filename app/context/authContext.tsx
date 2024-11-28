@@ -24,11 +24,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const pathName = usePathname();
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    if (user) {
-      setIsAuthenticated(true);
-    } else {
-      setIsAuthenticated(false);
+    let user;
+    if (typeof window !== undefined){
+      user = localStorage.getItem('user');
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
     }
   }, []);
 

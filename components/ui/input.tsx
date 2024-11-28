@@ -1,7 +1,9 @@
 // components/ui/input.tsx
 import React from "react";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  shadow?: boolean;
+}
 
 export const Input: React.FC<InputProps> = ({ className, ...props }) => {
   return (

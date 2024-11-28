@@ -9,8 +9,8 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (email === process.env.NEXT_APP_EMAIL && password === process.env.NEXT_APP_PASS) {
+    console.log(process.env.NEXT_PUBLIC_EMAIL, "EMAIL")
+    if (email === process.env.NEXT_PUBLIC_EMAIL && password === process.env.NEXT_PUBLIC_PASS) {
       login({ email });
     } else {
       alert('Invalid credentials');

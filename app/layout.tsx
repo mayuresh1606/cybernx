@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Sidebar } from "@/components/ui/sidebar";
 import { ThemeProvider } from "./context/theme";
 import { VendorProvider } from "./context/vendors";
 import { AuthProvider } from "./context/authContext";

@@ -1,29 +1,18 @@
 // File: /components/ui/chart/ChartContainer.tsx
 
 import React from "react";
-import { TooltipProps } from "recharts";
 
 interface ChartContainerProps {
   children: React.ReactNode;
   className?: string;
-  config?: {
-    width?: string;
-    height?: string;
-    backgroundColor?: string;
-  }
 }
 
 interface ChartTooltipContentProps {
     label?: string;
-    items?: { color: string; name: string; value: any }[];
-}  
+    items?: { color: string; name: string; value: string }[];
+}
 
-export const ChartContainer: React.FC<ChartContainerProps> = ({ children, className, config }) => {
-  const containerStyles = {
-    width: config?.width || "100%",
-    height: config?.height || "auto",
-    backgroundColor: config?.backgroundColor || "white",
-  };
+export const ChartContainer: React.FC<ChartContainerProps> = ({ children, className }) => {
   return (
     <div className={`p-4 border rounded-lg bg-white dark:bg-[#1A1A1D] shadow-md ${className}`}>
       {children}

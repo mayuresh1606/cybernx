@@ -7,15 +7,16 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Moon, Sun, Search, Info } from 'lucide-react'
 import { Switch } from "@/components/ui/switch"
 import { useTheme } from '../context/theme'
 import { useVendorContext, VendorData } from '../context/vendors'
 import { VendorDetailsModal } from '@/components/ui/VendorModal'
+import withAuth from '../hoc/auth'
 
 
-export default function EnhancedVendorListView() {
+function EnhancedVendorListView() {
   const [searchTerm, setSearchTerm] = useState('')
   const {isDarkTheme, toggleTheme} = useTheme();
   const { vendors } = useVendorContext();
@@ -170,3 +171,5 @@ export default function EnhancedVendorListView() {
     </div>
   )
 }
+
+export default withAuth(EnhancedVendorListView)

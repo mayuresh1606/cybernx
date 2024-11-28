@@ -39,6 +39,7 @@ export const useVendorContext = () => {
 }
 
 export const VendorProvider = ({ children }: { children: React.ReactNode; }) => {
+    if (typeof window === undefined) return null;
     let vendorsLocal = localStorage.getItem('vendors');
     if (vendorsLocal) vendorsLocal = JSON.parse(vendorsLocal);
     

@@ -1,7 +1,9 @@
 // components/ui/card.tsx
 import React, { HTMLAttributes } from "react";
 
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  shadow?: boolean;
+}
 
 export const Card: React.FC<CardProps> = ({ children, className, ...props }) => {
   return (
@@ -36,7 +38,7 @@ export const CardContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ ch
 };
 
 export interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {
-  className?: string; // For custom styling
+  className?: string;
 }
 
 export const CardDescription: React.FC<CardDescriptionProps> = ({ className, children, ...props }) => {

@@ -11,9 +11,10 @@ import { Moon, Sun, Search, Edit } from 'lucide-react'
 import { useTheme } from '../context/theme'
 import { useVendorContext, VendorData } from '../context/vendors'
 import MyForm from '@/components/ui/vendorForm'
+import withAuth from '../hoc/auth'
 
 
-export default function VendorListView() {
+function VendorListView() {
   const {vendors} = useVendorContext()
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [form, setForm] = useState<boolean>(false);
@@ -179,3 +180,5 @@ export default function VendorListView() {
     </div>
   )
 }
+
+export default withAuth(VendorListView);

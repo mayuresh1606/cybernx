@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { VendorData } from '@/app/context/vendors';
 import { Badge } from './badge';
 

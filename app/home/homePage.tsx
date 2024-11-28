@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,10 +8,10 @@ import { Label } from "@/components/ui/label"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
-import { Moon, Sun, Search, Home, Users, FileText, Settings, LogOut, Info } from 'lucide-react'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
+import { Moon, Sun, Search, Users, Info } from 'lucide-react'
 import { useTheme } from '../context/theme'
 import { useVendorContext, VendorData } from '../context/vendors'
 import { VendorDetailsModal } from '@/components/ui/VendorModal'
@@ -188,7 +188,7 @@ export default function EnhancedVendorDashboard() {
                   <CardTitle>Vendor Types</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={{ width: "50%"}} className="h-[300px]">
+                  <ChartContainer className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie
@@ -216,7 +216,7 @@ export default function EnhancedVendorDashboard() {
                   <CardTitle>Vendor Criticality</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={{}} className="h-[300px]">
+                  <ChartContainer className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={criticalityData}>
                         <CartesianGrid strokeDasharray="3 3" />
@@ -235,7 +235,7 @@ export default function EnhancedVendorDashboard() {
                   <CardTitle>Vendor Status</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ChartContainer config={{}} className="h-[300px]">
+                  <ChartContainer className="h-[300px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie
