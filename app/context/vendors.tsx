@@ -39,7 +39,7 @@ export const useVendorContext = () => {
 }
 
 export const VendorProvider = ({ children }: { children: React.ReactNode; }) => {
-    const [vendors, setVendors] = useState<VendorData[]>([]);
+    const [vendors, setVendors] = useState<VendorData[]>(vendorsData);
     useEffect(() => {
         let vendorsLocal = localStorage.getItem('vendors');
         if (vendorsLocal) vendorsLocal = JSON.parse(vendorsLocal);
