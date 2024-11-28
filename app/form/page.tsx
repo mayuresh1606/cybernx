@@ -139,7 +139,7 @@ function EnhancedVendorListView() {
                       <TableCell className="text-gray-700 dark:text-gray-300">{vendor.serviceProvided}</TableCell>
                       <TableCell>
                         <TooltipProvider>
-                          <Tooltip content="Open Vendor Details">
+                          <Tooltip content="Vendor Details">
                             <TooltipTrigger asChild>
                               <Button
                                 variant="outline"

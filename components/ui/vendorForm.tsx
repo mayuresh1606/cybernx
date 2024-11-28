@@ -10,7 +10,7 @@ import { VendorData } from '@/app/context/vendors';
 const schema = yup.object().shape({
   id: yup.number().required('ID is required').positive('ID must be a positive number'),
   name: yup.string().required('Name is required'),
-  type: yup.string().oneOf(['Supplier', 'Customer', 'Logistics'], 'Type must be Supplier, Customer or Logistics').required('Type is required'),
+  type: yup.string().oneOf(['Supplier', 'Service Provider', 'Technology', 'Logistics'], 'Type must be Supplier, Service Provider, Technology or Logistics').required('Type is required'),
   criticality: yup.string().oneOf(['Critical', 'High', 'Medium', 'Low'], 'Criticality must be High, Medium, or Low').required('Criticality is required'),
   status: yup.string().oneOf(['Active', 'Inactive', 'Under Review'], 'Status must be Active, Inactive or Under Review').required('Status is required'),
   contact: yup.string().email('Invalid email format').required('Contact is required'),
@@ -120,8 +120,9 @@ const MyForm = ({ setForm, form, edit, setEdit, vendorToEdit }: { setForm: (valu
               className="border p-2 w-full border-gray-800 py-2 rounded-md dark:border-black/25 text-gray-800"
             >
               <option value="Supplier">Supplier</option>
-              <option value="Service Provider">Service Provider</option>
+              <option value="Technology">Technology</option>
               <option value="Logistics">Logistics</option>
+              <option value="Service Provider">Service Provider</option>
             </Field>
             <ErrorMessage name="type" component="p" className="text-red-500 text-sm" />
           </div>
