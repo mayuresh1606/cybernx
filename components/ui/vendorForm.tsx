@@ -77,14 +77,16 @@ const MyForm = ({ setForm, form, edit, setEdit, vendorToEdit }: { setForm: (valu
     // }, [edit]);
   
     const editVendor = (id: number, values: VendorData) => {
-      const newVendors = vendors.map((vendor: VendorData) => {
-        if (vendor.id === id) {
-          return { ...vendor, ...values };
-        }
-        return vendor;
-      });
-      setVendors(newVendors);
-      localStorage.setItem("vendors", JSON.stringify(newVendors));
+      if (typeof window !== undefined){
+        const newVendors = vendors.map((vendor: VendorData) => {
+          if (vendor.id === id) {
+            return { ...vendor, ...values };
+          }
+          return vendor;
+        });
+        setVendors(newVendors);
+        localStorage.setItem("vendors", JSON.stringify(newVendors));
+      }
     };
 
   return (
