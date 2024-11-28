@@ -49,7 +49,7 @@ export const VendorProvider = ({ children }: { children: React.ReactNode; }) => 
             ? vendorsData 
             : []);
         setVendors(initialVendors)
-        localStorage.setItem('vendors', JSON.stringify(vendors));
+        localStorage.setItem('vendors', JSON.stringify(initialVendors));
     }, [])
 
     const addVendor = (values: VendorData) => {

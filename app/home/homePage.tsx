@@ -143,7 +143,7 @@ export default function EnhancedVendorDashboard() {
 
             {/* Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <Card className="bg-blue-300 dark:bg-blue-900">
+              <Card className="dark:bg-blue-900">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium text-blue-800 dark:text-blue-100">Total Vendors</CardTitle>
                   <Users className="h-4 w-4 text-blue-600 dark:text-blue-300" />
@@ -152,7 +152,7 @@ export default function EnhancedVendorDashboard() {
                   <div className="text-2xl font-bold text-blue-900 dark:text-blue-50">{vendors.length}</div>
                 </CardContent>
               </Card>
-              <Card className="bg-green-300 dark:bg-green-900">
+              <Card className="dark:bg-green-900">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium text-green-800 dark:text-green-100">Active Vendors</CardTitle>
                   <Users className="h-4 w-4 text-green-600 dark:text-green-300" />
@@ -161,7 +161,7 @@ export default function EnhancedVendorDashboard() {
                   <div className="text-2xl font-bold text-green-900 dark:text-green-50">{vendors.filter(v => v.status === 'Active').length}</div>
                 </CardContent>
               </Card>
-              <Card className="bg-red-300 dark:bg-red-900">
+              <Card className="dark:bg-red-900">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium text-red-800 dark:text-red-100">Critical Vendors</CardTitle>
                   <Users className="h-4 w-4 text-red-600 dark:text-red-300" />
@@ -170,7 +170,7 @@ export default function EnhancedVendorDashboard() {
                   <div className="text-2xl font-bold text-red-900 dark:text-red-50">{vendors.filter(v => v.criticality === 'Critical').length}</div>
                 </CardContent>
               </Card>
-              <Card className="bg-yellow-300 dark:bg-yellow-900">
+              <Card className="dark:bg-yellow-900">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium text-yellow-800 dark:text-yellow-100">Pending Vendors</CardTitle>
                   <Users className="h-4 w-4 text-yellow-600 dark:text-yellow-300" />
