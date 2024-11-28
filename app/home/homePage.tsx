@@ -176,7 +176,7 @@ export default function EnhancedVendorDashboard() {
                   <Users className="h-4 w-4 text-yellow-600 dark:text-yellow-300" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-yellow-900 dark:text-yellow-50">{vendors.filter(v => v.status === 'Pending').length}</div>
+                  <div className="text-2xl font-bold text-yellow-900 dark:text-yellow-50">{vendors.filter(v => v.status === 'Under Review').length}</div>
                 </CardContent>
               </Card>
             </div>
